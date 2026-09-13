@@ -1,7 +1,7 @@
 name: bluebuild
 on:
   schedule:
-    - cron: "17 7 * * THU" # Thursday 7:17 AM ET
+    - cron: "17 7 * * FRI" # Friday 7:17 AM ET
       timezone: "America/New_York"
   push:
     branches:
