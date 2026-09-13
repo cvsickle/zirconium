@@ -21,7 +21,7 @@ modules:
   - from-file: common/brew.yml
 
   # Update systemd configuration.
-  - from-file: common/systemd.yml
+  - from-file: common/system.yml
 
   # Update the os-release.
   - from-file: common/os-release.yml
