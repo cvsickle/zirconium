@@ -1,0 +1,27 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  # Add system files.
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+  # Install packages.
+  - from-file: common/packages.yml
+
+  # Install fonts.
+  - from-file: common/fonts.yml
+
+  # Install flatpaks.
+  - from-file: common/flatpak.yml
+
+  # Install brew packages.
+  - from-file: common/brew.yml
+
+  # Update the os-release.
+  - from-file: common/os-release.yml
+
+  # Add signing configuration.
+  - type: signing
