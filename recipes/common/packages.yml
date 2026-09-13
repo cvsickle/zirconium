@@ -16,8 +16,12 @@ modules:
         - tree-sitter-cli
         - ripgrep
         - fd-find
+        - sassc
+        - sass
+        - gtk-murrine-engine
         - breeze-cursor-theme
         - helium-bin
+        - docker-cli
     replace:
       - from-repo: fedora
         packages:
