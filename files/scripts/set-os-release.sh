@@ -13,9 +13,9 @@ set_os_release_var() {
   fi
 }
 
-set_os_release_var "NAME" "CVSickle Bluefin DX"
+set_os_release_var "NAME" "CVSickle Zirconium"
 set_os_release_var "VERSION" "${CURRENT_DATE}"
-set_os_release_var "PRETTY_NAME" "CVSickle Bluefin DX (${CURRENT_DATE})"
+set_os_release_var "PRETTY_NAME" "CVSickle Zirconium (${CURRENT_DATE})"
 
 echo "Updated os-release:"
 cat /usr/lib/os-release

@@ -25,7 +25,7 @@ curl -fsSL \
     | sudo tar -xz -C /usr/local/bin just
 sudo tee /usr/local/bin/ujust >/dev/null <<'EOF'
 #!/bin/bash
-just --justfile /workspaces/bluefin-dx-nvidia-open/justfile "$@"
+just --justfile /workspaces/zirconium/justfile "$@"
 EOF
 sudo chmod +x /usr/local/bin/ujust
 

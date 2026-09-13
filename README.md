@@ -37,7 +37,7 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 THere is the recommened installation process.
 
 - Flash the Zirconium ISO from the project's [GitHub](https://isos.zirconium.gay/zirconium-isos/zirconium-amd64.iso) onto a USB.
-- Boot from the USB and install Bluefin.
+- Boot from the USB and install Zirconium.
 - Boot into Zirconium.
 
 > [!TIP]
