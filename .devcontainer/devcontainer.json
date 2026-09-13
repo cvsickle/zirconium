@@ -1,0 +1,57 @@
+{
+    "name": "zirconium dev tools",
+    "build": {
+        "dockerfile": "Containerfile"
+    },
+    "postCreateCommand": "bash .devcontainer/install-tools.sh",
+    "runArgs": [
+        "--name=zirconium-dx-dev-tools"
+    ],
+    "mounts": [
+        {
+            "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.ssh",
+            "target": "/home/vscode/.ssh",
+            "type": "bind"
+        },
+        {
+            "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig",
+            "target": "/home/vscode/.gitconfig",
+            "type": "bind"
+        },
+        {
+            "source": "/var/run/docker.sock",
+            "target": "/var/run/docker.sock",
+            "type": "bind"
+        }
+    ],
+    "remoteUser": "vscode",
+    "privileged": true,
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "upgradePackages": true
+        },
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:4": {
+            "version": "latest",
+            "moby": false
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "timonwong.shellcheck",
+                "github.vscode-github-actions",
+                "redhat.vscode-yaml",
+                "nefrob.vscode-just-syntax",
+                "DavidAnson.vscode-markdownlint",
+                "Vivswan.litellm-vscode-chat",
+                "GitHub.copilot-chat"
+            ],
+            "settings": {
+                "shellcheck.enable": true,
+                "editor.formatOnSave": true
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    repos:
+      copr:
+        - dejan/lazygit
+        - imput/helium
+      nonfree: rpmfusion
+      cleanup: true
+    install:
+      packages:
+        - neovim
+        - lazygit
+        - tree-sitter-cli
+        - ripgrep
+        - fd-find
+        - breeze-cursor-theme
+        - helium-bin
+    replace:
+      - from-repo: fedora
+        packages:
+          - old: tuned-ppd
+            new: power-profiles-daemon

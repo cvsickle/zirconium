@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Lazydocker
+Comment=Terminal UI for Docker and Podman
+Icon=podman.svg
+TryExec=/home/linuxbrew/.linuxbrew/bin/lazydocker
+Exec=/home/linuxbrew/.linuxbrew/bin/lazydocker
+Terminal=true
+StartupNotify=false
+Categories=Development;
+Keywords=docker;podman;containers;terminal;compose;

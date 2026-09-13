@@ -1,38 +1,85 @@
-# zirconium &nbsp; [![bluebuild build badge](https://github.com/cvsickle/zirconium/actions/workflows/build.yml/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/build.yml)
+# Zirconium
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
+[![bluebuild build badge](https://github.com/cvsickle/zirconium/actions/workflows/build.yml/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/build.yml)
 
-After setup, it is recommended you update this README to describe your custom image.
+---
+
+This repository is a custom [bootc](https://github.com/bootc-dev/bootc) image built on [Zirconium](https://github.com/zirconium-dev/zirconium).
+
+It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
+
+## Changes made
+
+### System packages added
+
+- Everything needed for [LazyVim](https://github.com/lazyvim/lazyvim)
+  - [Neovim](https://github.com/neovim/neovim)
+  - [LazyGit](https://github.com/jesseduffield/lazygit)
+  - JetBrains Mono Nerd Font from [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+  - Etc.
+- [Helium Browser](https://github.com/imputnet/helium)
+- Swapped `tuned-ppd` for `power-profiles-daemon` for optimization on Framework 13 Pro. See the [Phoronix writeup](https://www.phoronix.com/review/fedora-pantherlake-thermald-tuned).
+
+### Brew
+
+- [Dev Container CLI](https://github.com/devcontainers/cli)
+- [LazyDocker](https://github.com/jesseduffield/lazydocker)
+
+### Flatpak
+
+- [Easy Effects](https://flathub.org/en/apps/com.github.wwmm.easyeffects)
+- [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever)
+- [Web Apps](https://flathub.org/en/apps/net.codelogistics.webapps)
+- [SiriKali](https://flathub.org/en/apps/io.github.mhogomchungu.sirikali)
 
 ## Installation
 
-> [!WARNING]  
-> [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable), try at your own discretion.
+THere is the recommened installation process.
 
-To rebase an existing atomic Fedora installation to the latest build:
+- Flash the Zirconium ISO from the project's [GitHub](https://isos.zirconium.gay/zirconium-isos/zirconium-amd64.iso) onto a USB.
+- Boot from the USB and install Bluefin.
+- Boot into Zirconium.
 
-- First rebase to the unsigned image, to get the proper signing keys and policies installed:
-  ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/cvsickle/zirconium:latest
-  ```
-- Reboot to complete the rebase:
-  ```
-  systemctl reboot
-  ```
-- Then rebase to the signed image, like so:
-  ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/cvsickle/zirconium:latest
-  ```
-- Reboot again to complete the installation
-  ```
-  systemctl reboot
-  ```
+> [!TIP]
+> This process should work from any Fedora-based bootc image.
 
-The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
+```bash
+# Switch to developer mode.
+ujust devmode
+# Reboot when done.
+systemctl reboot
+```
 
-## ISO
+- Once in developer mode, switch to this image.
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/how-to/generate-iso/#_top). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
+```bash
+# Normal image
+sudo bootc switch ghcr.io/cvsickle/zirconium:latest
+# Nvidia image
+sudo bootc switch ghcr.io/cvsickle/zirconium-nvidia:latest
+
+# Reboot when done.
+systemctl reboot
+```
+
+- Once booted into this image, enable signing verification.
+
+```bash
+# Normal image
+sudo bootc switch --enforce-container-sigpolicy ghcr.io/cvsickle/zirconium:latest
+# Nvidia image
+sudo bootc switch --enforce-container-sigpolicy ghcr.io/cvsickle/zirconium-nvidia:latest
+```
+
+- If the boot loader menu entries are still showing the upstream image name, force them to update.
+
+```bash
+sudo rpm-ostree kargs --append=bls.refresh=1
+systemctl reboot
+
+sudo rpm-ostree kargs --delete=bls.refresh=1
+systemctl reboot
+```
 
 ## Verification
 

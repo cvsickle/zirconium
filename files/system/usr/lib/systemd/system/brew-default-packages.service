@@ -1,0 +1,16 @@
+[Unit]
+Description=Install default Brew packages
+After=brew-setup.service network-online.target
+Wants=network-online.target
+ConditionPathExists=!/home/linuxbrew/.cache/.brew-default-packages
+
+[Service]
+Type=oneshot
+User=1000
+Group=1000
+TimeoutStartSec=600
+ExecStart=/usr/bin/brew-default-packages.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
