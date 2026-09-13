@@ -1,6 +1,6 @@
 # Zirconium
 
-[![bluebuild build badge](https://github.com/cvsickle/zirconium/actions/workflows/build.yml/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/build.yml)
+[![bluebuild build badge](https://github.com/cvsickle/zirconium/actions/workflows/build.yml/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/build.yml) &nbsp; [![Dependabot Updates](https://github.com/cvsickle/zirconium/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/dependabot/dependabot-updates) &nbsp; [![renovate](https://github.com/cvsickle/zirconium/actions/workflows/renovate.yml/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/renovate.yml)
 
 ---
 
@@ -18,7 +18,9 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
   - JetBrains Mono Nerd Font from [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
   - Etc.
 - [Helium Browser](https://github.com/imputnet/helium)
+- Dependencies for [Fausto-Korpsvart](https://github.com/Fausto-Korpsvart) themes.
 - Swapped `tuned-ppd` for `power-profiles-daemon` for optimization on Framework 13 Pro. See the [Phoronix writeup](https://www.phoronix.com/review/fedora-pantherlake-thermald-tuned).
+- Docker CLI
 
 ### Brew
 
@@ -31,6 +33,7 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever)
 - [Web Apps](https://flathub.org/en/apps/net.codelogistics.webapps)
 - [SiriKali](https://flathub.org/en/apps/io.github.mhogomchungu.sirikali)
+- [Podman Desktop](https://flathub.org/en/apps/io.podman_desktop.PodmanDesktop)
 
 ## Installation
 
@@ -50,7 +53,7 @@ ujust devmode
 systemctl reboot
 ```
 
-- Once in developer mode, switch to this image.
+- Once in Zirconium, switch to this image.
 
 ```bash
 # Normal image
@@ -80,6 +83,10 @@ systemctl reboot
 sudo rpm-ostree kargs --delete=bls.refresh=1
 systemctl reboot
 ```
+
+## Recommended GTK Theming
+
+Want to make your apps look less gray? Check out the [theming instructions](./docs/themes.md).
 
 ## Verification
 
