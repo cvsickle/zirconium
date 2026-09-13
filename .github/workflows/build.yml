@@ -22,6 +22,10 @@ jobs:
   bluebuild:
     name: Build Custom Image
     runs-on: ubuntu-latest
+    env:
+      BB_BUILD_DRIVER: podman
+      BB_RUN_DRIVER: podman
+      BB_INSPECTOR_DRIVER: skopeo
     permissions:
       contents: read
       packages: write
