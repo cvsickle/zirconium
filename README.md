@@ -1,6 +1,6 @@
 # Zirconium
 
-[![bluebuild build badge](https://github.com/cvsickle/zirconium/actions/workflows/build.yml/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/build.yml) &nbsp; [![Dependabot Updates](https://github.com/cvsickle/zirconium/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/dependabot/dependabot-updates) &nbsp; [![renovate](https://github.com/cvsickle/zirconium/actions/workflows/renovate.yml/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/renovate.yml)
+[![bluebuild build badge](https://github.com/cvsickle/zirconium/actions/workflows/build.yml/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/build.yml) &nbsp; [![Dependabot Updates](https://github.com/cvsickle/zirconium/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/dependabot/dependabot-updates) &nbsp; [![renovate](https://github.com/cvsickle/zirconium/actions/workflows/renovate.yml/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/renovate.yml) &nbsp; [![Repo sync (GitHub -> Codeberg)](https://github.com/cvsickle/zirconium/actions/workflows/sync_codeberg.yaml/badge.svg)](https://github.com/cvsickle/zirconium/actions/workflows/sync_codeberg.yaml)
 
 ---
 
@@ -33,9 +33,11 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 ### Flatpak
 
 - [Easy Effects](https://flathub.org/en/apps/com.github.wwmm.easyeffects)
+- [File Roller](https://flathub.org/en/apps/org.gnome.FileRoller)
 - [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal)
 - [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever)
 - [Podman Desktop](https://flathub.org/en/apps/io.podman_desktop.PodmanDesktop)
+- [qView](https://flathub.org/en/apps/com.interversehq.qView)
 - [SiriKali](https://flathub.org/en/apps/io.github.mhogomchungu.sirikali)
 - [Web Apps](https://flathub.org/en/apps/net.codelogistics.webapps)
 
@@ -99,3 +101,9 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ```bash
 cosign verify --key cosign.pub ghcr.io/cvsickle/zirconium
 ```
+
+## Repository Mirrors
+
+- GitHub - [https://github.com/cvsickle/zirconium](https://github.com/cvsickle/zirconium)
+- Codeberg - [https://codeberg.org/cvsickle/zirconium](https://codeberg.org/cvsickle/zirconium)
+- Forgejo (Mirror) - [https://git.cvsickle.com/cvsickle/zirconium](https://git.cvsickle.com/cvsickle/zirconium)
