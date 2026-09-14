@@ -13,4 +13,5 @@ modules:
           - net.codelogistics.webapps # Manage Web Apps
           - io.github.mhogomchungu.sirikali # GUI for managing encrypted volumes
           - io.podman_desktop.PodmanDesktop # GUI for managing containers
+          - com.github.tchx84.Flatseal # GUI for managing Flatpak permissions
       - scope: user # Also add Flathub user repo, but no user packages

@@ -8,6 +8,8 @@ modules:
         - dejan/lazygit
         - imput/helium
       nonfree: rpmfusion
+      keys:
+        - https://packages.microsoft.com/keys/microsoft.asc
       cleanup: true
     install:
       packages:
@@ -16,12 +18,18 @@ modules:
         - tree-sitter-cli
         - ripgrep
         - fd-find
+
         - sassc
         - sass
         - gtk-murrine-engine
         - breeze-cursor-theme
+
         - helium-bin
+
         - docker-cli
+        - podman-compose
+
+        - code
     replace:
       - from-repo: fedora
         packages:

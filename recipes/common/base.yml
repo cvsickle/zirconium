@@ -20,6 +20,9 @@ modules:
   # Install brew packages.
   - from-file: common/brew.yml
 
+  # Install misc. stuff.
+  - from-file: common/misc.yml
+
   # Update systemd configuration.
   - from-file: common/system.yml
 
