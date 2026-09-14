@@ -21,6 +21,9 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - Dependencies for [Fausto-Korpsvart](https://github.com/Fausto-Korpsvart) themes.
 - Swapped `tuned-ppd` for `power-profiles-daemon` for optimization on Framework 13 Pro. See the [Phoronix writeup](https://www.phoronix.com/review/fedora-pantherlake-thermald-tuned).
 - Docker CLI
+- Podman Compose
+- VS Code
+- [Oniri](https://github.com/Antiz96/oniri)
 
 ### Brew
 
@@ -30,10 +33,11 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 ### Flatpak
 
 - [Easy Effects](https://flathub.org/en/apps/com.github.wwmm.easyeffects)
+- [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal)
 - [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever)
-- [Web Apps](https://flathub.org/en/apps/net.codelogistics.webapps)
-- [SiriKali](https://flathub.org/en/apps/io.github.mhogomchungu.sirikali)
 - [Podman Desktop](https://flathub.org/en/apps/io.podman_desktop.PodmanDesktop)
+- [SiriKali](https://flathub.org/en/apps/io.github.mhogomchungu.sirikali)
+- [Web Apps](https://flathub.org/en/apps/net.codelogistics.webapps)
 
 ## Installation
 
