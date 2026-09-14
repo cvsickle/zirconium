@@ -1,0 +1,31 @@
+# Sync repo to the Codeberg mirror
+name: Repo sync (GitHub -> Codeberg)
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch: # Manual dispatch
+  schedule:
+    - cron: "42 */6 * * *"
+
+jobs:
+  sync-repo-to-codeberg:
+    # Dependabot / hosted Renovate cannot access CODEBERG_TOKEN; scheduled sync will catch up.
+    if: github.actor != 'dependabot[bot]' && github.actor != 'renovate[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: "Gather facts"
+        run: |
+          echo "Repo variables:"
+          echo "  CODEBERG_PUSH_URL: ${{ vars.CODEBERG_BASE_URL }}${{ vars.CODEBERG_REPO }}.git"
+          echo "  CODEBERG_USERNAME: ${{ vars.CODEBERG_USERNAME }}"
+      - name: "Sync repo"
+        uses: yesolutions/mirror-action@v0.7.0
+        with:
+          REMOTE: "${{ vars.CODEBERG_BASE_URL }}${{ vars.CODEBERG_REPO }}.git"
+          GIT_USERNAME: ${{ vars.CODEBERG_USERNAME }}
+          GIT_PASSWORD: ${{ secrets.CODEBERG_TOKEN }}
