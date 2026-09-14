@@ -35,3 +35,7 @@ modules:
         packages:
           - old: tuned-ppd
             new: power-profiles-daemon
+    remove:
+      packages:
+        - hyfetch
+      auto-remove: true
