@@ -18,6 +18,7 @@ modules:
         - tree-sitter-cli
         - ripgrep
         - fd-find
+        - fastfetch
 
         - sassc
         - sass
