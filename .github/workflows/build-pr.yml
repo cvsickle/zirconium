@@ -8,6 +8,7 @@ on:
       - ".devcontainer/**"
       - ".github/workflows/renovate.yaml"
       - ".github/workflows/sync_codeberg.yaml"
+      - "docs/**"
   workflow_dispatch: # allow manually triggering builds
 
 concurrency:
