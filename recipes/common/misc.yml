@@ -5,3 +5,7 @@ modules:
   - type: script
     scripts:
       - install-oniri.sh
+
+  - type: script
+    scripts:
+      - install-btop-catppuccin.sh
