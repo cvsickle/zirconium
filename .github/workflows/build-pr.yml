@@ -36,7 +36,7 @@ jobs:
     steps:
       # the build is fully handled by the reusable github action
       - name: Verify Image Build
-        uses: blue-build/github-action@v1.12
+        uses: blue-build/github-action@v1.13
         with:
           recipe: ${{ matrix.recipe }}
           # Dependabot (and fork) PRs do not receive repository secrets, so
