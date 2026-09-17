@@ -7,6 +7,3 @@ modules:
       enabled:
         - podman.socket
         - podman-restart.service
-    system:
-      enabled:
-        - podman.socket
