@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=btop
+Comment=A monitor of resources
+Icon=/usr/share/icons/hicolor/scalable/apps/btop.svg
+TryExec=btop
+Exec=btop
+Terminal=true
+StartupNotify=false
+Categories=System;
+Keywords=system;resources;cpu;processes;memory;
