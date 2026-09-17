@@ -2,7 +2,7 @@
 Type=Application
 Name=Lazydocker
 Comment=Terminal UI for Docker and Podman
-Icon=podman.svg
+Icon=/usr/share/icons/hicolor/scalable/apps/podman.svg
 TryExec=/home/linuxbrew/.linuxbrew/bin/lazydocker
 Exec=/home/linuxbrew/.linuxbrew/bin/lazydocker
 Terminal=true
