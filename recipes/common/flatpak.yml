@@ -16,4 +16,5 @@ modules:
           - com.github.tchx84.Flatseal # GUI for managing Flatpak permissions
           - com.interversehq.qView # Image viewer
           - org.gnome.FileRoller # Archive manager
+          - me.iepure.devtoolbox # Handy developer tools
       - scope: user # Also add Flathub user repo, but no user packages

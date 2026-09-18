@@ -5,6 +5,7 @@ modules:
   - type: dnf
     repos:
       copr:
+        - atim/starship
         - dejan/lazygit
         - imput/helium
         - ublue-os/packages
@@ -14,12 +15,15 @@ modules:
       cleanup: true
     install:
       packages:
+        - chrony
+
         - neovim
         - lazygit
         - tree-sitter-cli
         - ripgrep
         - fd-find
         - fastfetch
+        - starship
         - btop
 
         - sassc

@@ -1,0 +1,14 @@
+[Unit]
+Description=Configure system time and RTC
+After=chronyd.service
+Before=display-manager.service
+Wants=chronyd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/timedatectl set-local-rtc 0
+ExecStart=/usr/bin/timedatectl set-ntp true
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

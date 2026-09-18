@@ -3,6 +3,7 @@ set -euo pipefail
 
 # Define packages to install
 PACKAGES=(
+  bbrew
   lazydocker
   devcontainer
 )
