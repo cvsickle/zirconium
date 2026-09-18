@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=bbrew
+Comment=Terminal UI for managing Homebrew and Flatpak packages
+Icon=/usr/share/icons/hicolor/scalable/apps/bbrew.svg
+TryExec=bbrew
+Exec=bbrew
+Terminal=true
+StartupNotify=false
+Categories=System;
+Keywords=system;applications;cli;flatpak;apps;brew;homebrew;
