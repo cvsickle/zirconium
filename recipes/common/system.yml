@@ -6,6 +6,8 @@ modules:
     system:
       enabled:
         - ublue-system-setup.service
+        - chronyd.service
+        - zirconium-time-setup.service
     user:
       enabled:
         - podman.socket
