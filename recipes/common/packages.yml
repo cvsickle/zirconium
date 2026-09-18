@@ -7,6 +7,7 @@ modules:
       copr:
         - dejan/lazygit
         - imput/helium
+        - ublue-os/packages
       nonfree: rpmfusion
       keys:
         - https://packages.microsoft.com/keys/microsoft.asc
@@ -32,6 +33,7 @@ modules:
         - podman-compose
 
         - code
+        - ublue-setup-services
     replace:
       - from-repo: fedora
         packages:

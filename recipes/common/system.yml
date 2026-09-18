@@ -3,7 +3,11 @@
 
 modules:
   - type: systemd
+    system:
+      enabled:
+        - ublue-system-setup.service
     user:
       enabled:
         - podman.socket
         - podman-restart.service
+        - ublue-user-setup.service
