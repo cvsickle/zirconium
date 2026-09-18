@@ -32,11 +32,13 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 
 ### Brew
 
+- [Bold Brew](https://github.com/Valkyrie00/bold-brew)
 - [Dev Container CLI](https://github.com/devcontainers/cli)
 - [LazyDocker](https://github.com/jesseduffield/lazydocker)
 
 ### Flatpak
 
+- [Dev Toolbox](https://flathub.org/en/apps/me.iepure.devtoolbox)
 - [Easy Effects](https://flathub.org/en/apps/com.github.wwmm.easyeffects)
 - [File Roller](https://flathub.org/en/apps/org.gnome.FileRoller)
 - [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal)
