@@ -21,6 +21,7 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
   - [LazyGit](https://github.com/jesseduffield/lazygit)
   - JetBrains Mono Nerd Font from [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
   - Etc.
+- [starship](https://github.com/starship/starship)
 - [btop](https://github.com/aristocratos/btop)
 - [Helium Browser](https://github.com/imputnet/helium)
 - Dependencies for [Fausto-Korpsvart](https://github.com/Fausto-Korpsvart) themes.

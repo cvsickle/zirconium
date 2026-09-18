@@ -5,6 +5,7 @@ modules:
   - type: dnf
     repos:
       copr:
+        - atim/starship
         - dejan/lazygit
         - imput/helium
         - ublue-os/packages
@@ -20,6 +21,7 @@ modules:
         - ripgrep
         - fd-find
         - fastfetch
+        - starship
         - btop
 
         - sassc
