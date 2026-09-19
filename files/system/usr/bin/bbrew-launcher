@@ -1,21 +1,25 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-BREW_PREFIX=/home/linuxbrew/.linuxbrew
-
-if [[ ! -x "$BREW_PREFIX/bin/brew" ]]; then
-    printf 'Homebrew is not installed at %s\n' "$BREW_PREFIX"
-    read -r -p 'Press Enter to close...'
-    exit 1
+# bbrew (and brew itself) can prompt for admin credentials mid-run when it
+# needs to fix permissions or run privileged steps. Authenticate up front so
+# the user isn't interrupted by a sudo prompt in the middle of the TUI.
+if ! sudo -v; then
+  echo "Administrator authentication is required to run bbrew." >&2
+  exit 1
 fi
 
-eval "$("$BREW_PREFIX/bin/brew" shellenv)"
+# Keep the sudo timestamp alive for as long as bbrew is running.
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" 2>/dev/null || exit
+done 2>/dev/null &
+SUDO_KEEPALIVE_PID=$!
+trap 'kill "$SUDO_KEEPALIVE_PID" 2>/dev/null' EXIT
 
-"$BREW_PREFIX/bin/bbrew" "$@"
-status=$?
-
-if (( status != 0 )); then
-    printf '\nbbrew exited with status %d\n' "$status"
-    read -r -p 'Press Enter to close...'
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-exit "$status"
+exec bbrew "${@}"

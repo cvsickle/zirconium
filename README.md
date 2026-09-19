@@ -58,7 +58,7 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 
 ## Installation
 
-THere is the recommened installation process.
+Here is the recommened installation process.
 
 - Flash the Zirconium ISO from the project's [GitHub](https://isos.zirconium.gay/zirconium-isos/zirconium-amd64.iso) onto a USB.
 - Boot from the USB and install Zirconium.
