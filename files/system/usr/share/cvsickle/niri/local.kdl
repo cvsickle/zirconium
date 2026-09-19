@@ -1,0 +1,9 @@
+spawn-sh-at-startup "oniri --tiling-layout"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+input {
+    focus-follows-mouse
+}
