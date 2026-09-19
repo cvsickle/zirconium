@@ -53,7 +53,6 @@ modules:
         - fcitx5-configtool
         - fcitx5-data
         - fcitx5-gtk
-        - fcitx5-gtk2
         - fcitx5-gtk3
         - fcitx5-gtk4
         - fcitx5-libs
