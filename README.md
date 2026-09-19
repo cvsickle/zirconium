@@ -31,6 +31,12 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - VS Code
 - [Oniri](https://github.com/Antiz96/oniri)
 
+### System packages removed
+
+- fcitx5
+- hyfetch
+- valent
+
 ### Brew
 
 - [Bold Brew](https://github.com/Valkyrie00/bold-brew)
@@ -44,6 +50,7 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - [File Roller](https://flathub.org/en/apps/org.gnome.FileRoller)
 - [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal)
 - [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever)
+- [LocalSend](https://flathub.org/en/apps/org.localsend.localsend_app)
 - [Podman Desktop](https://flathub.org/en/apps/io.podman_desktop.PodmanDesktop)
 - [qView](https://flathub.org/en/apps/com.interversehq.qView)
 - [SiriKali](https://flathub.org/en/apps/io.github.mhogomchungu.sirikali)
