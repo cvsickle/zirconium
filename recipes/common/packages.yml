@@ -18,7 +18,7 @@ modules:
         - docker-cli
         - podman-compose
     replace:
-      - from-repo: updates
+      - from-repo: fedora
         packages:
           - old: tuned-ppd
             new: power-profiles-daemon
