@@ -8,6 +8,7 @@ modules:
         - ublue-system-setup.service
         - chronyd.service
         - zirconium-time-setup.service
+        - tailscaled
     user:
       enabled:
         - podman.socket
