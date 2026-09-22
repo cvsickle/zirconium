@@ -24,11 +24,9 @@ modules:
         - gstreamer1-plugins-bad-freeworld
         - gstreamer1-plugin-libav
         - libheif-freeworld
-        # VA-API / VDPAU plumbing + diagnostics
+        # VA-API plumbing + diagnostics
         - libva
         - libva-utils
-        - libvdpau
-        - vdpauinfo
         # Bluetooth audio codecs
         - pipewire-codec-aptx
         # Mesa freeworld (both Intel and hybrid images)
@@ -45,6 +43,5 @@ modules:
         - gstreamer1-plugins-bad-freeworld.i686
         - gstreamer1-plugin-libav.i686
         - libva.i686
-        - libvdpau.i686
         - mesa-va-drivers-freeworld.i686
         - intel-media-driver.i686
