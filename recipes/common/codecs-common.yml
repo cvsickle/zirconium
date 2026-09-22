@@ -6,11 +6,6 @@ modules:
   - type: dnf
     repos:
       nonfree: rpmfusion
-    remove:
-      auto-remove: true
-      packages:
-        - libavcodec-free
-        - libheif
     install:
       allow-erasing: true
       packages:
@@ -38,7 +33,6 @@ modules:
         - pipewire-codec-aptx
         # Mesa freeworld (both Intel and hybrid images)
         - mesa-va-drivers-freeworld
-        - mesa-vdpau-drivers-freeworld
         # Intel media driver (iGPU on all Intel/hybrid systems)
         - intel-media-driver
         - intel-gmmlib
@@ -53,5 +47,4 @@ modules:
         - libva.i686
         - libvdpau.i686
         - mesa-va-drivers-freeworld.i686
-        - mesa-vdpau-drivers-freeworld.i686
         - intel-media-driver.i686
