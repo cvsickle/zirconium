@@ -70,11 +70,9 @@ modules:
         - dejan/lazygit
         - imput/helium
         - ublue-os/packages
-      nonfree: rpmfusion
-      files:
-        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       keys:
         - https://packages.microsoft.com/keys/microsoft.asc
+        - https://pkgs.tailscale.com/stable/fedora/repo.gpg
       cleanup: true
     install:
       packages:
