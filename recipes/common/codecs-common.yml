@@ -1,0 +1,57 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  # Full multimedia stack (x86_64 only)
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+    remove:
+      auto-remove: true
+      packages:
+        - libavcodec-free
+        - libheif
+    install:
+      allow-erasing: true
+      packages:
+        # ffmpeg (full)
+        - ffmpeg
+        # GStreamer core
+        - gstreamer1
+        - gstreamer1-plugins-base
+        - gstreamer1-plugins-good
+        - gstreamer1-plugins-good-extras
+        - gstreamer1-plugins-bad-free
+        - gstreamer1-plugins-bad-free-extras
+        - gstreamer1-plugin-openh264
+        # GStreamer restricted (RPM Fusion)
+        - gstreamer1-plugins-ugly
+        - gstreamer1-plugins-bad-freeworld
+        - gstreamer1-plugin-libav
+        - libheif-freeworld
+        # VA-API / VDPAU plumbing + diagnostics
+        - libva
+        - libva-utils
+        - libvdpau
+        - vdpauinfo
+        # Bluetooth audio codecs
+        - pipewire-codec-aptx
+        # Mesa freeworld (both Intel and hybrid images)
+        - mesa-va-drivers-freeworld
+        - mesa-vdpau-drivers-freeworld
+        # Intel media driver (iGPU on all Intel/hybrid systems)
+        - intel-media-driver
+        - intel-gmmlib
+        # --- 32-bit support (for Wine/Proton/legacy apps) ---
+        - gstreamer1.i686
+        - gstreamer1-plugins-base.i686
+        - gstreamer1-plugins-good.i686
+        - gstreamer1-plugins-bad-free.i686
+        - gstreamer1-plugins-ugly.i686
+        - gstreamer1-plugins-bad-freeworld.i686
+        - gstreamer1-plugin-libav.i686
+        - libva.i686
+        - libvdpau.i686
+        - mesa-va-drivers-freeworld.i686
+        - mesa-vdpau-drivers-freeworld.i686
+        - intel-media-driver.i686
