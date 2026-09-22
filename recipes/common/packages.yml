@@ -7,19 +7,14 @@ modules:
     install:
       packages:
         - chrony
-
         - neovim
         - tree-sitter-cli
         - ripgrep
         - fd-find
-        - fastfetch
-        - btop
-
         - sassc
         - sass
         - gtk-murrine-engine
         - breeze-cursor-theme
-
         - docker-cli
         - podman-compose
     replace:
