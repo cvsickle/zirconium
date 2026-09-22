@@ -71,6 +71,8 @@ modules:
         - imput/helium
         - ublue-os/packages
       nonfree: rpmfusion
+      files:
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       keys:
         - https://packages.microsoft.com/keys/microsoft.asc
       cleanup: true
@@ -81,3 +83,4 @@ modules:
         - helium-bin
         - code
         - ublue-setup-services
+        - tailscale
