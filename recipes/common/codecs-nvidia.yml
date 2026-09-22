@@ -8,5 +8,3 @@ modules:
     install:
       packages:
         - libva-nvidia-driver
-        # --- 32-bit support (for Wine/Proton/legacy apps) ---
-        - libva-nvidia-driver.i686

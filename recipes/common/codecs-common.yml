@@ -2,6 +2,25 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
 modules:
+  # Verify codec stack
+  - type: script
+    snippets:
+      - |
+        set -euo pipefail
+        echo "Verifying codec stack..."
+        for pkg in ffmpeg ffmpeg-libs intel-media-driver \
+                   gstreamer1-plugins-ugly gstreamer1-plugins-bad-freeworld \
+                   libheif-freeworld; do
+          rpm -q "$pkg" >/dev/null || { echo "MISSING: $pkg"; exit 1; }
+        done
+        # Fail if any -free ffmpeg lib survived the swap
+        if rpm -qa | grep -q '^libav.*-free-'; then
+          echo "ERROR: crippled -free ffmpeg libs still present"; exit 1
+        fi
+        # Fail on a mesa downgrade
+        rpm -q --qf '%{VERSION}\n' mesa-dri-drivers
+        echo "Codec stack OK"
+
   # Full multimedia stack (x86_64 only)
   - type: dnf
     repos:
@@ -27,21 +46,8 @@ modules:
         # VA-API plumbing + diagnostics
         - libva
         - libva-utils
-        # Bluetooth audio codecs
-        - pipewire-codec-aptx
-        # Mesa freeworld (both Intel and hybrid images)
-        - mesa-va-drivers-freeworld
-        # Intel media driver (iGPU on all Intel/hybrid systems)
+        # Intel VA-API driver (iHD) — Arc B390 and the i7 iGPU
         - intel-media-driver
         - intel-gmmlib
-        # --- 32-bit support (for Wine/Proton/legacy apps) ---
-        - gstreamer1.i686
-        - gstreamer1-plugins-base.i686
-        - gstreamer1-plugins-good.i686
-        - gstreamer1-plugins-bad-free.i686
-        - gstreamer1-plugins-ugly.i686
-        - gstreamer1-plugins-bad-freeworld.i686
-        - gstreamer1-plugin-libav.i686
-        - libva.i686
-        - mesa-va-drivers-freeworld.i686
-        - intel-media-driver.i686
+        # Bluetooth audio codecs
+        - pipewire-codec-aptx
