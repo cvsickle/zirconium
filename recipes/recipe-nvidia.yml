@@ -12,4 +12,36 @@ image-version: latest # You can pin to a specific version of Fedora as well
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  - from-file: common/base.yml
+  # Add system files.
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+  # Install packages.
+  - from-file: common/packages.yml
+
+  # Install media codecs.
+  - from-file: common/codecs-common.yml
+  - from-file: common/codecs-nvidia.yml
+
+  # Install fonts.
+  - from-file: common/fonts.yml
+
+  # Install flatpaks.
+  - from-file: common/flatpak.yml
+
+  # Install brew packages.
+  - from-file: common/brew.yml
+
+  # Install misc. stuff.
+  - from-file: common/misc.yml
+
+  # Update systemd configuration.
+  - from-file: common/system.yml
+
+  # Update the os-release.
+  - from-file: common/os-release.yml
+
+  # Add signing configuration.
+  - type: signing

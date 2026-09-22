@@ -1,0 +1,53 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  # Full multimedia stack (x86_64 only)
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+    install:
+      allow-erasing: true
+      packages:
+        # ffmpeg (full)
+        - ffmpeg
+        # GStreamer core
+        - gstreamer1
+        - gstreamer1-plugins-base
+        - gstreamer1-plugins-good
+        - gstreamer1-plugins-good-extras
+        - gstreamer1-plugins-bad-free
+        - gstreamer1-plugins-bad-free-extras
+        - gstreamer1-plugin-openh264
+        # GStreamer restricted (RPM Fusion)
+        - gstreamer1-plugins-ugly
+        - gstreamer1-plugins-bad-freeworld
+        - gstreamer1-plugin-libav
+        - libheif-freeworld
+        # VA-API plumbing + diagnostics
+        - libva
+        - libva-utils
+        # Intel VA-API driver
+        - intel-media-driver
+        - intel-gmmlib
+        # Bluetooth audio codecs
+        - pipewire-codec-aptx
+
+  # Verify codec stack
+  - type: script
+    snippets:
+      - |
+        set -euo pipefail
+        echo "Verifying codec stack..."
+        for pkg in ffmpeg ffmpeg-libs intel-media-driver \
+                   gstreamer1-plugins-ugly gstreamer1-plugins-bad-freeworld \
+                   libheif-freeworld; do
+          rpm -q "$pkg" >/dev/null || { echo "MISSING: $pkg"; exit 1; }
+        done
+        # Fail if any -free ffmpeg lib survived the swap
+        if rpm -qa | grep -q '^libav.*-free-'; then
+          echo "ERROR: crippled -free ffmpeg libs still present"; exit 1
+        fi
+        # Fail on a mesa downgrade
+        rpm -q --qf '%{VERSION}\n' mesa-dri-drivers
+        echo "Codec stack OK"
