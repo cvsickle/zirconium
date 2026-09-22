@@ -2,28 +2,17 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
 modules:
+  # Fedora packages
   - type: dnf
-    repos:
-      copr:
-        - atim/starship
-        - dejan/lazygit
-        - imput/helium
-        - ublue-os/packages
-      nonfree: rpmfusion
-      keys:
-        - https://packages.microsoft.com/keys/microsoft.asc
-      cleanup: true
     install:
       packages:
         - chrony
 
         - neovim
-        - lazygit
         - tree-sitter-cli
         - ripgrep
         - fd-find
         - fastfetch
-        - starship
         - btop
 
         - sassc
@@ -31,13 +20,8 @@ modules:
         - gtk-murrine-engine
         - breeze-cursor-theme
 
-        - helium-bin
-
         - docker-cli
         - podman-compose
-
-        - code
-        - ublue-setup-services
     replace:
       - from-repo: fedora
         packages:
@@ -77,3 +61,23 @@ modules:
         - qt6-qtwebengine
         - valent
       auto-remove: true
+
+  # Non-Fedora packages
+  - type: dnf
+    repos:
+      copr:
+        - atim/starship
+        - dejan/lazygit
+        - imput/helium
+        - ublue-os/packages
+      nonfree: rpmfusion
+      keys:
+        - https://packages.microsoft.com/keys/microsoft.asc
+      cleanup: true
+    install:
+      packages:
+        - starship
+        - lazygit
+        - helium-bin
+        - code
+        - ublue-setup-services
