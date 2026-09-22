@@ -62,7 +62,7 @@ modules:
     repos:
       copr:
         - atim/starship
-        #- dejan/lazygit
+        - dejan/lazygit
         - imput/helium
         - ublue-os/packages
       keys:
@@ -72,7 +72,7 @@ modules:
     install:
       packages:
         - starship
-        #- lazygit
+        - lazygit
         - helium-bin
         - code
         - ublue-setup-services
