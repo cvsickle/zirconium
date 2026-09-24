@@ -47,9 +47,7 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 
 ### Flatpak
 
-- [Dev Toolbox](https://flathub.org/en/apps/me.iepure.devtoolbox)
 - [Easy Effects](https://flathub.org/en/apps/com.github.wwmm.easyeffects)
-- [File Roller](https://flathub.org/en/apps/org.gnome.FileRoller)
 - [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal)
 - [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever)
 - [LocalSend](https://flathub.org/en/apps/org.localsend.localsend_app)
