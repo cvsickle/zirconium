@@ -32,6 +32,8 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - Podman Compose
 - VS Code
 - [Oniri](https://github.com/Antiz96/oniri)
+- [Bitwarden CLI](https://github.com/doy/rbw)
+- [File Roller](https://gitlab.gnome.org/GNOME/file-roller)
 
 ### System packages removed
 
