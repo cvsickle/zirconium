@@ -4,10 +4,6 @@
 modules:
   - type: script
     scripts:
-      - setup-bitwarden-policy.sh
-
-  - type: script
-    scripts:
       - install-oniri.sh
 
   - type: script
