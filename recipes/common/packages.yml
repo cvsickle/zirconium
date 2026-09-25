@@ -58,18 +58,25 @@ modules:
         - valent
       auto-remove: true
 
+  # Terra packages
+  - type: dnf
+    repos:
+      files:
+        - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+    install:
+      packages:
+        - nwg-look
+
   # Keyed packages
   - type: dnf
     repos:
       keys:
         - https://packages.microsoft.com/keys/microsoft.asc
         - https://pkgs.tailscale.com/stable/fedora/repo.gpg
-        - https://repos.fyralabs.com/terra$releasever/key.asc
       cleanup: true
     install:
       packages:
         - code
-        - nwg-look
         - tailscale
 
   # Universal Blue
