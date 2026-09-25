@@ -11,12 +11,13 @@ modules:
         - tree-sitter-cli
         - ripgrep
         - fd-find
-        - sassc
-        - sass
-        - gtk-murrine-engine
+        - adw-gtk3-theme
+        - qt6ct
         - breeze-cursor-theme
         - docker-cli
         - podman-compose
+        - file-roller
+        - rbw
     replace:
       - from-repo: fedora
         packages:
@@ -62,6 +63,7 @@ modules:
     repos:
       copr:
         - atim/starship
+        - avengemedia/danklinux
         - dejan/lazygit
         - imput/helium
         - ublue-os/packages
@@ -72,6 +74,7 @@ modules:
     install:
       packages:
         - starship
+        - dankcalendar-git
         - lazygit
         - helium-bin
         - code

@@ -26,12 +26,13 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - [starship](https://github.com/starship/starship)
 - [btop](https://github.com/aristocratos/btop)
 - [Helium Browser](https://github.com/imputnet/helium)
-- Dependencies for [Fausto-Korpsvart](https://github.com/Fausto-Korpsvart) themes.
 - Swapped `tuned-ppd` for `power-profiles-daemon` for optimization on Framework 13 Pro. See the [Phoronix writeup](https://www.phoronix.com/review/fedora-pantherlake-thermald-tuned).
 - Docker CLI
 - Podman Compose
 - VS Code
 - [Oniri](https://github.com/Antiz96/oniri)
+- [Bitwarden CLI](https://github.com/doy/rbw)
+- [File Roller](https://gitlab.gnome.org/GNOME/file-roller)
 
 ### System packages removed
 
@@ -47,9 +48,7 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 
 ### Flatpak
 
-- [Dev Toolbox](https://flathub.org/en/apps/me.iepure.devtoolbox)
 - [Easy Effects](https://flathub.org/en/apps/com.github.wwmm.easyeffects)
-- [File Roller](https://flathub.org/en/apps/org.gnome.FileRoller)
 - [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal)
 - [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever)
 - [LocalSend](https://flathub.org/en/apps/org.localsend.localsend_app)
