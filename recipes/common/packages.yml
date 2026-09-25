@@ -13,6 +13,7 @@ modules:
         - fd-find
         - adw-gtk3-theme
         - qt6ct
+        - nwg-look
         - breeze-cursor-theme
         - docker-cli
         - podman-compose
