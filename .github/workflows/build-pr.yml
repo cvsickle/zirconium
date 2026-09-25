@@ -9,6 +9,7 @@ on:
       - ".github/workflows/renovate.yaml"
       - ".github/workflows/sync_codeberg.yaml"
       - "docs/**"
+      - "files/system/usr/share/ublue-os"
   workflow_dispatch: # allow manually triggering builds
 
 concurrency:
