@@ -11,9 +11,8 @@ modules:
         - tree-sitter-cli
         - ripgrep
         - fd-find
-        - sassc
-        - sass
-        - gtk-murrine-engine
+        - adw-gtk3-theme
+        - qt6ct
         - breeze-cursor-theme
         - docker-cli
         - podman-compose

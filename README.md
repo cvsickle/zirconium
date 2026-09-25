@@ -26,7 +26,6 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - [starship](https://github.com/starship/starship)
 - [btop](https://github.com/aristocratos/btop)
 - [Helium Browser](https://github.com/imputnet/helium)
-- Dependencies for [Fausto-Korpsvart](https://github.com/Fausto-Korpsvart) themes.
 - Swapped `tuned-ppd` for `power-profiles-daemon` for optimization on Framework 13 Pro. See the [Phoronix writeup](https://www.phoronix.com/review/fedora-pantherlake-thermald-tuned).
 - Docker CLI
 - Podman Compose
