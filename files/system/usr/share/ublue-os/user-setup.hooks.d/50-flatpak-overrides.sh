@@ -5,7 +5,8 @@ set -euo pipefail
 flatpak override --user \
   --filesystem="$HOME/.themes" \
   --filesystem="$HOME/.icons" \
-  --filesystem=xdg-config/gtk-4.0
+  --filesystem=xdg-config/gtk-4.0 \
+  --filesystem=xdg-cache/DankMaterialShell:ro
 
 # Uninstall DankCalendar
 if flatpak info com.danklinux.dankcalendar &>/dev/null; then
