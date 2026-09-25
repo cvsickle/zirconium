@@ -58,25 +58,64 @@ modules:
         - valent
       auto-remove: true
 
-  # Non-Fedora packages
+  # Keyed packages
   - type: dnf
     repos:
-      copr:
-        - atim/starship
-        - avengemedia/danklinux
-        - dejan/lazygit
-        - imput/helium
-        - ublue-os/packages
       keys:
         - https://packages.microsoft.com/keys/microsoft.asc
         - https://pkgs.tailscale.com/stable/fedora/repo.gpg
       cleanup: true
     install:
       packages:
-        - starship
-        - dankcalendar-git
-        - lazygit
-        - helium-bin
         - code
-        - ublue-setup-services
         - tailscale
+
+  # Universal Blue
+  - type: dnf
+    repos:
+      copr:
+        - ublue-os/packages
+      cleanup: true
+    install:
+      packages:
+        - ublue-setup-services
+
+  # Starship
+  - type: dnf
+    repos:
+      copr:
+        - atim/starship
+      cleanup: true
+    install:
+      packages:
+        - starship
+
+  # Lazygit
+  - type: dnf
+    repos:
+      copr:
+        - dejan/lazygit
+      cleanup: true
+    install:
+      packages:
+        - lazygit
+
+  # Helium browser
+  - type: dnf
+    repos:
+      copr:
+        - imput/helium
+      cleanup: true
+    install:
+      packages:
+        - helium-bin
+
+  # Dank Linux Packages
+  - type: dnf
+    repos:
+      copr:
+        - avengemedia/danklinux
+      cleanup: true
+    install:
+      packages:
+        - dankcalendar-git
