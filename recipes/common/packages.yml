@@ -63,6 +63,7 @@ modules:
     repos:
       copr:
         - atim/starship
+        - avengemedia/danklinux
         - dejan/lazygit
         - imput/helium
         - ublue-os/packages
@@ -73,6 +74,7 @@ modules:
     install:
       packages:
         - starship
+        - dankcalendar-git
         - lazygit
         - helium-bin
         - code
