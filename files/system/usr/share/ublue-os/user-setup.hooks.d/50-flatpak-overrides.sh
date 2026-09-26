@@ -9,6 +9,7 @@ flatpak override --user \
   --filesystem="$HOME/.local/share/icons:ro" \
   --filesystem=xdg-config/gtk-3.0:ro \
   --filesystem=xdg-config/gtk-4.0:ro \
+  --filesystem=xdg-config/qt6ct:ro \
   --filesystem=xdg-cache/DankMaterialShell:ro
 
 # Uninstall DankCalendar

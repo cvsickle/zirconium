@@ -58,16 +58,6 @@ modules:
         - valent
       auto-remove: true
 
-  # Terra packages
-  - type: dnf
-    repos:
-      files:
-        - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-      cleanup: true
-    install:
-      packages:
-        - nwg-look
-
   # Keyed packages
   - type: dnf
     repos:
