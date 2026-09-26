@@ -32,5 +32,6 @@ curl --fail --location --silent --show-error --retry 3 \
 printf '%s  %s\n' "${GCM_SHA256}" "${TEMPORARY_DIRECTORY}/${GCM_ASSET}" \
 	| sha256sum --check --status
 
+install --directory /usr/local/bin
 tar --extract --gzip --file "${TEMPORARY_DIRECTORY}/${GCM_ASSET}" \
 	--directory /usr/local/bin
