@@ -52,6 +52,7 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal)
 - [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever)
 - [LocalSend](https://flathub.org/en/apps/org.localsend.localsend_app)
+  - See [the docs](./docs/localsend.md) for firewall information.
 - [Podman Desktop](https://flathub.org/en/apps/io.podman_desktop.PodmanDesktop)
 - [SiriKali](https://flathub.org/en/apps/io.github.mhogomchungu.sirikali)
 - [Web Apps](https://flathub.org/en/apps/net.codelogistics.webapps)

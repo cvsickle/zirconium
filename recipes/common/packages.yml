@@ -7,6 +7,7 @@ modules:
     install:
       packages:
         - chrony
+        - gh
         - neovim
         - tree-sitter-cli
         - ripgrep
