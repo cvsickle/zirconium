@@ -18,7 +18,6 @@ modules:
         - docker-cli
         - podman-compose
         - file-roller
-        - rbw
     replace:
       - from-repo: fedora
         packages:
