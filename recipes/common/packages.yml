@@ -6,17 +6,22 @@ modules:
   - type: dnf
     install:
       packages:
+        # System utilities
         - chrony
+        # Terminal utilities
         - gh
         - neovim
         - tree-sitter-cli
         - ripgrep
         - fd-find
+        - docker-cli
+        - podman-compose
+        # Desktop
         - adw-gtk3-theme
         - qt6ct
         - breeze-cursor-theme
-        - docker-cli
-        - podman-compose
+        - papirus-icon-theme
+        # Applications
         - file-roller
     replace:
       - from-repo: fedora
@@ -58,17 +63,27 @@ modules:
         - valent
       auto-remove: true
 
-  # Keyed packages
+  # Tailscale
   - type: dnf
     repos:
+      files:
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      cleanup: true
+    install:
+      packages:
+        - tailscale
+
+  # VS Code
+  - type: dnf
+    repos:
+      files:
+        - https://packages.microsoft.com/yumrepos/vscode/config.repo
       keys:
         - https://packages.microsoft.com/keys/microsoft.asc
-        - https://pkgs.tailscale.com/stable/fedora/repo.gpg
       cleanup: true
     install:
       packages:
         - code
-        - tailscale
 
   # Universal Blue
   - type: dnf
@@ -119,3 +134,13 @@ modules:
     install:
       packages:
         - dankcalendar-git
+
+  # Bibata Cursor Theme
+  - type: dnf
+    repos:
+      copr:
+        - peterwu/rendezvous
+      cleanup: true
+    install:
+      packages:
+        - bibata-cursor-themes

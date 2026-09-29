@@ -16,23 +16,30 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 
 ### System packages added
 
+#### Usability
+
 - Multimedia Codecs
+- Nerd Fonts from [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+- [Docker CLI](https://github.com/docker/cli)
+- [Podman Compose](https://github.com/containers/podman-compose)
+- [GitHub CLI](https://cli.github.com/)
+- [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager)
+- [Oniri](https://github.com/Antiz96/oniri)
+  - See [docs/niri](./docs/niri.md) for setup info.
+- Swapped `tuned-ppd` for `power-profiles-daemon`
+  - See the [Phoronix writeup](https://www.phoronix.com/review/fedora-pantherlake-thermald-tuned) for info.
+
+#### Applications
+
 - [Tailscale](https://tailscale.com/)
+  - See [docs/tailscale](./docs/tailscale.md) for setup info.
 - Everything needed for [LazyVim](https://github.com/lazyvim/lazyvim)
   - [Neovim](https://github.com/neovim/neovim)
   - [LazyGit](https://github.com/jesseduffield/lazygit)
-  - JetBrains Mono Nerd Font from [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
   - Etc.
 - [starship](https://github.com/starship/starship)
-- [btop](https://github.com/aristocratos/btop)
 - [Helium Browser](https://github.com/imputnet/helium)
-- Swapped `tuned-ppd` for `power-profiles-daemon` for optimization on Framework 13 Pro. See the [Phoronix writeup](https://www.phoronix.com/review/fedora-pantherlake-thermald-tuned).
-- Docker CLI
-- Podman Compose
-- GitHub CLI
-- Git Credential Manager
-- VS Code
-- [Oniri](https://github.com/Antiz96/oniri)
+- [VS Code](https://github.com/microsoft/vscode)
 - [File Roller](https://gitlab.gnome.org/GNOME/file-roller)
 
 ### System packages removed
@@ -53,7 +60,7 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal)
 - [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever)
 - [LocalSend](https://flathub.org/en/apps/org.localsend.localsend_app)
-  - See [the docs](./docs/localsend.md) for firewall information.
+  - See [docs/localsend](./docs/localsend.md) for firewall information.
 - [Podman Desktop](https://flathub.org/en/apps/io.podman_desktop.PodmanDesktop)
 - [SiriKali](https://flathub.org/en/apps/io.github.mhogomchungu.sirikali)
 - [Web Apps](https://flathub.org/en/apps/net.codelogistics.webapps)
