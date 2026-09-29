@@ -6,17 +6,22 @@ modules:
   - type: dnf
     install:
       packages:
+        # System utilities
         - chrony
+        # Terminal utilities
         - gh
         - neovim
         - tree-sitter-cli
         - ripgrep
         - fd-find
+        - docker-cli
+        - podman-compose
+        # Desktop
         - adw-gtk3-theme
         - qt6ct
         - breeze-cursor-theme
-        - docker-cli
-        - podman-compose
+        - papirus-icon-theme
+        # Applications
         - file-roller
     replace:
       - from-repo: fedora
@@ -119,3 +124,13 @@ modules:
     install:
       packages:
         - dankcalendar-git
+
+  # Bibata Cursor Theme
+  - type: dnf
+    repos:
+      copr:
+        - peterwu/rendezvous
+      cleanup: true
+    install:
+      packages:
+        - bibata-cursor-themes
