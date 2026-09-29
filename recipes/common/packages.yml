@@ -63,17 +63,25 @@ modules:
         - valent
       auto-remove: true
 
-  # Keyed packages
+  # Tailscale
+  - type: dnf
+    repos:
+      files:
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      cleanup: true
+    install:
+      packages:
+        - tailscale
+
+  # VS Code
   - type: dnf
     repos:
       keys:
         - https://packages.microsoft.com/keys/microsoft.asc
-        - https://pkgs.tailscale.com/stable/fedora/repo.gpg
       cleanup: true
     install:
       packages:
         - code
-        - tailscale
 
   # Universal Blue
   - type: dnf
