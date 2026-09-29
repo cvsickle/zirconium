@@ -76,6 +76,8 @@ modules:
   # VS Code
   - type: dnf
     repos:
+      files:
+        - https://packages.microsoft.com/yumrepos/vscode/config.repo
       keys:
         - https://packages.microsoft.com/keys/microsoft.asc
       cleanup: true
