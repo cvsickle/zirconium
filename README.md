@@ -76,14 +76,7 @@ Here is the recommened installation process.
 > [!TIP]
 > This process should work from any Fedora-based bootc image.
 
-```bash
-# Switch to developer mode.
-ujust devmode
-# Reboot when done.
-systemctl reboot
-```
-
-- Once in Zirconium, switch to this image.
+- Once in a bootc system, switch to this image.
 
 ```bash
 # Normal image
@@ -114,10 +107,6 @@ sudo rpm-ostree kargs --delete=bls.refresh=1
 systemctl reboot
 ```
 
-## Recommended GTK Theming
-
-Want to make your apps look less gray? Check out the [theming instructions](./docs/themes.md).
-
 ## Verification
 
 These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
@@ -136,3 +125,4 @@ cosign verify --key cosign.pub ghcr.io/cvsickle/zirconium
 
 - [Bazzite DX](https://github.com/cvsickle/bazzite-dx)
 - [Bluefin DX](https://github.com/cvsickle/bluefin-dx)
+- [Entrypoint](https://github.com/cvsickle/entrypoint)
