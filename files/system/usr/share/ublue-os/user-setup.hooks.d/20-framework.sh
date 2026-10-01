@@ -2,7 +2,7 @@
 
 source /usr/lib/ublue/setup-services/libsetup.sh
 
-version-script framework tool 2 || exit 0
+version-script framework tool 3 || exit 0
 
 set -x
 
@@ -11,9 +11,15 @@ VEN_ID="$(cat /sys/devices/virtual/dmi/id/chassis_vendor)"
 # Install framework_tool and wallpapers for Framework laptops
 if [[ ":Framework:" =~ :$VEN_ID: ]]; then
     BREW_PREFIX="/home/linuxbrew/.linuxbrew"
+    BREW_BIN="${BREW_PREFIX}/bin/brew"
 
-    # Check if Homebrew is available and user has write permissions
-    if command -v brew &> /dev/null && [[ -w "$BREW_PREFIX" ]]; then
+    if [[ ! -x "$BREW_BIN" ]]; then
+        echo "Warning: brew not found at $BREW_BIN, skipping Framework software installation (will retry on next run)"
+    elif [[ ! -w "$BREW_PREFIX" ]]; then
+        echo "Warning: user lacks write permission to $BREW_PREFIX, skipping Framework software installation (will retry on next run)"
+    else
+        eval "$("$BREW_BIN" shellenv)"
+
         if ! brew trust ublue-os/tap; then
             echo "Warning: failed to trust ublue-os/tap; Framework cask installs may fail"
         fi
@@ -53,7 +59,5 @@ if [[ ":Framework:" =~ :$VEN_ID: ]]; then
         else
             echo "framework-tool-tui already installed, skipping"
         fi
-    else
-        echo "Warning: brew not found or user lacks write permission to $BREW_PREFIX, skipping Framework software installation (will retry when available)"
     fi
 fi
