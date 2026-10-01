@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Framework Tool TUI
+Comment=Terminal interface for Framework tools
+Icon=/usr/share/icons/hicolor/scalable/apps/framework.svg
+TryExec=/home/linuxbrew/.linuxbrew/bin/framework-tool-tui
+Exec=sudo /home/linuxbrew/.linuxbrew/bin/framework-tool-tui
+Terminal=true
+StartupNotify=false
+Categories=System;
+Keywords=framework;hardware;system;terminal;
