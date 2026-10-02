@@ -16,7 +16,14 @@ if [[ ! -x "$BREW_BIN" ]]; then
 fi
 
 run_brew() {
-    run0 -u linuxbrew "$BREW_BIN" "$@"
+    (
+        cd / || exit
+        runuser -u linuxbrew -- env \
+            HOME=/home/linuxbrew \
+            USER=linuxbrew \
+            LOGNAME=linuxbrew \
+            "$BREW_BIN" "$@"
+    )
 }
 
 framework_tools_installed() {
