@@ -2,7 +2,7 @@
 
 source /usr/lib/ublue/setup-services/libsetup.sh
 
-version-script framework tool 3 || exit 0
+version-script framework tool 2 || exit 0
 
 set -x
 
@@ -15,31 +15,27 @@ if [[ ":Framework:" =~ :$VEN_ID: ]]; then
 
     if [[ ! -x "$BREW_BIN" ]]; then
         echo "Warning: brew not found at $BREW_BIN, skipping Framework software installation (will retry on next run)"
-    elif [[ ! -w "$BREW_PREFIX" ]]; then
-        echo "Warning: user lacks write permission to $BREW_PREFIX, skipping Framework software installation (will retry on next run)"
     else
-        eval "$("$BREW_BIN" shellenv)"
-
-        if ! brew trust ublue-os/tap; then
+        if ! "$BREW_BIN" trust ublue-os/tap; then
             echo "Warning: failed to trust ublue-os/tap; Framework cask installs may fail"
         fi
 
-        # Check if framework_tool is already installed via brew
-        if ! brew list --cask framework_tool &> /dev/null; then
-            echo "Framework laptop detected, installing framework_tool"
-            if brew install --cask ublue-os/tap/framework_tool; then
-                echo "framework_tool installed successfully"
+        # Check if framework-tool is already installed via brew
+        if ! "$BREW_BIN" list --cask framework-tool &> /dev/null; then
+            echo "Framework laptop detected, installing framework-tool"
+            if "$BREW_BIN" install --cask ublue-os/tap/framework-tool; then
+                echo "framework-tool installed successfully"
             else
-                echo "Warning: framework_tool installation failed, will retry on next run"
+                echo "Warning: framework-tool installation failed, will retry on next run"
             fi
         else
-            echo "framework_tool already installed, skipping"
+            echo "framework-tool already installed, skipping"
         fi
 
         # Check if framework-wallpapers is already installed via brew
-        if ! brew list --cask framework-wallpapers &> /dev/null; then
+        if ! "$BREW_BIN" list --cask framework-wallpapers &> /dev/null; then
             echo "Installing Framework wallpapers"
-            if brew install --cask ublue-os/tap/framework-wallpapers; then
+            if "$BREW_BIN" install --cask ublue-os/tap/framework-wallpapers; then
                 echo "Framework wallpapers installed successfully"
             else
                 echo "Warning: framework-wallpapers installation failed, will retry on next run"
@@ -49,9 +45,9 @@ if [[ ":Framework:" =~ :$VEN_ID: ]]; then
         fi
 
         # Check if framework-tool-tui is already installed via brew
-        if ! brew list --formula framework-tool-tui &> /dev/null; then
+        if ! "$BREW_BIN" list --formula framework-tool-tui &> /dev/null; then
             echo "Framework laptop detected, installing framework-tool-tui"
-            if brew install framework-tool-tui; then
+            if "$BREW_BIN" install framework-tool-tui; then
                 echo "framework-tool-tui installed successfully"
             else
                 echo "Warning: framework-tool-tui installation failed, will retry on next run"
