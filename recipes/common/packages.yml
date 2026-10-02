@@ -23,6 +23,7 @@ modules:
         - papirus-icon-theme
         # Applications
         - file-roller
+        - arm-image-installer
     replace:
       - from-repo: fedora
         packages:
