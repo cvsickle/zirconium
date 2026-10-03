@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# Installs Framework tools via Homebrew on Framework laptops.
+# Run by framework-tools-setup.service (started by framework-tools-setup.timer).
+# Idempotent: already-installed tools are skipped.
+
+set -u
+
+VEN_ID="$(cat /sys/devices/virtual/dmi/id/chassis_vendor 2>/dev/null)"
+[[ "$VEN_ID" == "Framework" ]] || exit 0
+
+BREW_BIN="/home/linuxbrew/.linuxbrew/bin/brew"
+if [[ ! -x "$BREW_BIN" ]]; then
+    echo "brew not found at $BREW_BIN; nothing to do"
+    exit 0
+fi
+
+# brew-proxy's wrapper forwards non-linuxbrew users to the DBus proxy (polkit),
+# but execs the real brew directly for the linuxbrew user, so run as that user.
+run_brew() {
+    (
+        cd / || exit
+        runuser -u linuxbrew -- env \
+            HOME=/home/linuxbrew \
+            USER=linuxbrew \
+            LOGNAME=linuxbrew \
+            "$BREW_BIN" "$@"
+    )
+}
+
+rc=0
+
+if run_brew list --cask framework-tool &> /dev/null; then
+    echo "framework-tool already installed, skipping"
+elif run_brew install --cask ublue-os/tap/framework-tool; then
+    echo "framework-tool installed successfully"
+elif run_brew list --cask framework-tool &> /dev/null; then
+    echo "framework-tool installed despite nonzero brew status"
+else
+    echo "Warning: framework-tool installation failed; will retry on next boot"
+    rc=1
+fi
+
+if run_brew list --formula framework-tool-tui &> /dev/null; then
+    echo "framework-tool-tui already installed, skipping"
+elif run_brew install framework-tool-tui; then
+    echo "framework-tool-tui installed successfully"
+elif run_brew list --formula framework-tool-tui &> /dev/null; then
+    echo "framework-tool-tui installed despite nonzero brew status"
+else
+    echo "Warning: framework-tool-tui installation failed; will retry on next boot"
+    rc=1
+fi
+
+exit "$rc"

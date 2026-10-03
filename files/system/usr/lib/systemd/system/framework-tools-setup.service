@@ -1,0 +1,10 @@
+[Unit]
+Description=Install Framework tools via Homebrew
+ConditionPathExists=/home/linuxbrew/.linuxbrew/bin/brew
+Wants=network-online.target
+After=network-online.target brew-setup.service brew-proxy-setup.service brew-proxy-fix-ownership.service
+
+[Service]
+Type=oneshot
+TimeoutStartSec=900
+ExecStart=/usr/libexec/framework-tools-setup
