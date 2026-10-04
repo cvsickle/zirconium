@@ -9,6 +9,7 @@ modules:
         # System utilities
         - chrony
         # Terminal utilities
+        - bash-completion
         - gh
         - neovim
         - tree-sitter-cli

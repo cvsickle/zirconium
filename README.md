@@ -97,13 +97,10 @@ sudo bootc switch --enforce-container-sigpolicy ghcr.io/cvsickle/zirconium:lates
 sudo bootc switch --enforce-container-sigpolicy ghcr.io/cvsickle/zirconium-nvidia:latest
 ```
 
-- If the boot loader menu entries are still showing the upstream image name, force them to update.
+- If the boot loader menu entries are still showing the upstream image name, force them to update. Unfortunately, this is only a one-time fix. I'm still researching why this happens sometimes.
 
 ```bash
 sudo rpm-ostree kargs --append=bls.refresh=1
-systemctl reboot
-
-sudo rpm-ostree kargs --delete=bls.refresh=1
 systemctl reboot
 ```
 

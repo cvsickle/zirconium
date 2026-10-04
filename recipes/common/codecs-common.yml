@@ -30,6 +30,8 @@ modules:
         # Intel VA-API driver
         - intel-media-driver
         - intel-gmmlib
+        # AMD VA-API driver
+        - mesa-va-drivers-freeworld
         # Bluetooth audio codecs
         - pipewire-codec-aptx
 
@@ -40,14 +42,25 @@ modules:
         set -euo pipefail
         echo "Verifying codec stack..."
         for pkg in ffmpeg ffmpeg-libs intel-media-driver \
+                   mesa-va-drivers-freeworld \
                    gstreamer1-plugins-ugly gstreamer1-plugins-bad-freeworld \
                    libheif-freeworld; do
           rpm -q "$pkg" >/dev/null || { echo "MISSING: $pkg"; exit 1; }
         done
         # Fail if any -free ffmpeg lib survived the swap
-        if rpm -qa | grep -q '^libav.*-free-'; then
-          echo "ERROR: crippled -free ffmpeg libs still present"; exit 1
+        # (capture first to avoid SIGPIPE under pipefail)
+        leftovers="$(rpm -qa --qf '%{NAME}\n' | grep -E '^(libav|libsw|libpostproc).*-free$' || true)"
+        if [ -n "$leftovers" ]; then
+          echo "ERROR: crippled -free ffmpeg libs still present:"
+          echo "$leftovers"; exit 1
         fi
-        # Fail on a mesa downgrade
-        rpm -q --qf '%{VERSION}\n' mesa-dri-drivers
+        # Fedora's limited mesa-va-drivers must have been replaced
+        if rpm -q mesa-va-drivers >/dev/null 2>&1; then
+          echo "ERROR: mesa-va-drivers still installed alongside freeworld"; exit 1
+        fi
+        # Fail if mesa versions drifted (freeworld must match base mesa)
+        base="$(rpm -q --qf '%{VERSION}\n' mesa-dri-drivers)"
+        va="$(rpm -q --qf '%{VERSION}\n' mesa-va-drivers-freeworld)"
+        echo "mesa-dri-drivers=$base mesa-va-drivers-freeworld=$va"
+        [ "$base" = "$va" ] || { echo "ERROR: mesa version mismatch"; exit 1; }
         echo "Codec stack OK"
