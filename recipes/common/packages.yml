@@ -9,14 +9,14 @@ modules:
         # System utilities
         - chrony
         # Terminal utilities
-        - bash-completion
         - gh
         - neovim
         - tree-sitter-cli
         - ripgrep
         - fd-find
-        - docker-cli
+        - podman-docker
         - podman-compose
+        - docker-compose
         # Desktop
         - adw-gtk3-theme
         - qt6ct
