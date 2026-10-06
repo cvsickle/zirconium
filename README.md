@@ -20,7 +20,7 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 
 - Multimedia Codecs
 - Nerd Fonts from [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
-- [podman-docker](https://github.com/podman-container-tools/podman/blob/main/docker/podman-docker.sh)
+- [Docker CLI](https://github.com/docker/cli)
 - [Podman Compose](https://github.com/containers/podman-compose)
 - [GitHub CLI](https://cli.github.com/)
 - [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager)
