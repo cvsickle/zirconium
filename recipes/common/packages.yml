@@ -23,7 +23,6 @@ modules:
         - breeze-cursor-theme
         - papirus-icon-theme
         # Applications
-        - file-roller
         - arm-image-installer
     replace:
       - from-repo: fedora
