@@ -25,6 +25,10 @@ modules:
         # Applications
         - file-roller
         - arm-image-installer
+        - mpv
+        - loupe
+        - gwenview
+        - okular
     replace:
       - from-repo: fedora
         packages:
