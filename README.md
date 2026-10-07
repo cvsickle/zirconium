@@ -40,7 +40,6 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - [starship](https://github.com/starship/starship)
 - [Helium Browser](https://github.com/imputnet/helium)
 - [VS Code](https://github.com/microsoft/vscode)
-- [File Roller](https://gitlab.gnome.org/GNOME/file-roller)
 
 ### System packages removed
 
@@ -54,15 +53,21 @@ It was created using the [BlueBuild Workshop](https://workshop.blue-build.org/).
 - [Dev Container CLI](https://github.com/devcontainers/cli)
 - [LazyDocker](https://github.com/jesseduffield/lazydocker)
 
-### Flatpak
+### Default Flatpaks
 
-- [Easy Effects](https://flathub.org/en/apps/com.github.wwmm.easyeffects)
-- [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal)
-- [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever)
+- [Calculator](https://flathub.org/en/apps/org.gnome.Calculator)
+- [Celluloid](https://flathub.org/en/apps/io.github.celluloid_player.Celluloid) (Video Player)
+- [Document Viewer](https://flathub.org/en/apps/org.gnome.Papers)
+- [Easy Effects](https://flathub.org/en/apps/com.github.wwmm.easyeffects) (Audio EQ)
+- [File Roller](https://flathub.org/en/apps/org.gnome.FileRoller) (Archive Manager)
+- [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal) (Flatpak Permissions Manager)
+- [Gear Lever](https://flathub.org/en/apps/it.mijorus.gearlever) (AppImage Manager)
+- [Image Viewer](https://flathub.org/en/apps/org.gnome.Loupe)
 - [LocalSend](https://flathub.org/en/apps/org.localsend.localsend_app)
   - See [docs/localsend](./docs/localsend.md) for firewall information.
 - [Podman Desktop](https://flathub.org/en/apps/io.podman_desktop.PodmanDesktop)
-- [SiriKali](https://flathub.org/en/apps/io.github.mhogomchungu.sirikali)
+- [Rufin](https://flathub.org/en/apps/io.github.screwys.Rufin) (Audio Player)
+- [SiriKali](https://flathub.org/en/apps/io.github.mhogomchungu.sirikali) (Encrypted File Manager)
 - [Web Apps](https://flathub.org/en/apps/net.codelogistics.webapps)
 
 ## Installation
