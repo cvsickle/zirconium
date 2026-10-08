@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-# renovate: datasource=github-releases depName=git-ecosystem/git-credential-manager
-GCM_VERSION="2.9.1"
+GCM_TAG="v2.9.1"
+GCM_VERSION="${GCM_TAG#v}"
 
 case "$(uname -m)" in
 	x86_64)
