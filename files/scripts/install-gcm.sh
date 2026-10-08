@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # renovate: datasource=github-releases depName=git-ecosystem/git-credential-manager
-GCM_VERSION="2.9.1"
+GCM_VERSION="3.0.1"
 GCM_ASSET="gcm-linux-x64-${GCM_VERSION}.tar.gz"
 GCM_BASE_URL="https://github.com/git-ecosystem/git-credential-manager/releases/download/v${GCM_VERSION}"
 
