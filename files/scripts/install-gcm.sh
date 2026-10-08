@@ -2,17 +2,14 @@
 
 set -euo pipefail
 
-GCM_TAG="v2.9.1"
-GCM_VERSION="${GCM_TAG#v}"
+GCM_REPOSITORY="git-ecosystem/git-credential-manager"
 
 case "$(uname -m)" in
 	x86_64)
 		GCM_ARCH="x64"
-		GCM_SHA256="31fc151c3b111ffe25616a4356bd9a50bdcdbd0922c5e11990fb220c6caf1ce1"
 		;;
 	aarch64|arm64)
 		GCM_ARCH="arm64"
-		GCM_SHA256="cf3806b7528b5a5af16bd4bd0683202fc432d9008dd91d20c4c6744b24a033b5"
 		;;
 	*)
 		printf 'Unsupported architecture: %s\n' "$(uname -m)" >&2
@@ -20,10 +17,36 @@ case "$(uname -m)" in
 		;;
 esac
 
-GCM_ASSET="gcm-linux-${GCM_ARCH}-${GCM_VERSION}.tar.gz"
-GCM_URL="https://github.com/git-ecosystem/git-credential-manager/releases/download/v${GCM_VERSION}/${GCM_ASSET}"
 TEMPORARY_DIRECTORY="$(mktemp -d)"
 trap 'rm -rf "${TEMPORARY_DIRECTORY}"' EXIT
+
+# Resolve the latest release. The API response is flattened to one line so the
+# tag and the per-asset digest can be matched without a JSON parser.
+RELEASE_JSON="${TEMPORARY_DIRECTORY}/release.json"
+curl --fail --location --silent --show-error --retry 3 \
+	--output "${RELEASE_JSON}" \
+	"https://api.github.com/repos/${GCM_REPOSITORY}/releases/latest"
+
+RELEASE_FLAT="$(tr -d '\n' < "${RELEASE_JSON}")"
+
+GCM_TAG="$(grep -oP '"tag_name": *"\K[^"]+' <<< "${RELEASE_FLAT}" | head -n 1)"
+if [[ -z "${GCM_TAG}" ]]; then
+	printf 'Could not determine latest GCM release tag\n' >&2
+	exit 1
+fi
+
+GCM_VERSION="${GCM_TAG#v}"
+GCM_ASSET="gcm-linux-${GCM_ARCH}-${GCM_VERSION}.tar.gz"
+
+# GitHub reports a sha256 digest for each release asset. Use it to verify the
+# download, so a corrupted or truncated archive is rejected.
+GCM_SHA256="$(grep -oP "\"name\": *\"${GCM_ASSET//./\\.}\".*?\"digest\": *\"sha256:\K[0-9a-f]{64}" <<< "${RELEASE_FLAT}" | head -n 1)"
+if [[ -z "${GCM_SHA256}" ]]; then
+	printf 'Could not find sha256 digest for %s\n' "${GCM_ASSET}" >&2
+	exit 1
+fi
+
+GCM_URL="https://github.com/${GCM_REPOSITORY}/releases/download/${GCM_TAG}/${GCM_ASSET}"
 
 curl --fail --location --silent --show-error --retry 3 \
 	--output "${TEMPORARY_DIRECTORY}/${GCM_ASSET}" \
