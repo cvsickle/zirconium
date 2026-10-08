@@ -14,7 +14,7 @@ modules:
         - tree-sitter-cli
         - ripgrep
         - fd-find
-        - podman-docker
+        - docker-cli
         - podman-compose
         - docker-compose
         # Desktop
@@ -23,7 +23,6 @@ modules:
         - breeze-cursor-theme
         - papirus-icon-theme
         # Applications
-        - file-roller
         - arm-image-installer
     replace:
       - from-repo: fedora

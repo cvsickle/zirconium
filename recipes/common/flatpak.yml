@@ -4,15 +4,21 @@
 modules:
   - type: default-flatpaks
     configurations:
-      - notify: false # Send notification after install/uninstall is finished (true/false)
+      - notify: false
         scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
+        install:
           - com.github.wwmm.easyeffects # Audio effects and EQ
           - it.mijorus.gearlever # Manage AppImages
           - net.codelogistics.webapps # Manage Web Apps
           - io.github.mhogomchungu.sirikali # GUI for managing encrypted volumes
+          - org.gnome.FileRoller # Archive manager
           - io.podman_desktop.PodmanDesktop # GUI for managing containers
           - com.github.tchx84.Flatseal # GUI for managing Flatpak permissions
           - org.localsend.localsend_app # Local file sharing app
-      - scope: user # Also add Flathub user repo, but no user packages
+          - org.gnome.Papers # PDF reader
+          - org.gnome.Loupe # Image viewer
+          - io.github.celluloid_player.Celluloid # Video player
+          - io.github.screwys.Rufin # Audio player
+          - org.gnome.Calculator # Calculator
+      - notify: false
+        scope: user # Also add Flathub user repo, but no user packages
