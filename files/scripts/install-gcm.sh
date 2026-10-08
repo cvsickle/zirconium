@@ -2,35 +2,39 @@
 
 set -euo pipefail
 
-GCM_TAG="v2.9.1"
-GCM_VERSION="${GCM_TAG#v}"
+# renovate: datasource=github-releases depName=git-ecosystem/git-credential-manager
+GCM_VERSION="2.9.1"
+GCM_ASSET="gcm-linux-x64-${GCM_VERSION}.tar.gz"
+GCM_BASE_URL="https://github.com/git-ecosystem/git-credential-manager/releases/download/v${GCM_VERSION}"
 
-case "$(uname -m)" in
-	x86_64)
-		GCM_ARCH="x64"
-		GCM_SHA256="31fc151c3b111ffe25616a4356bd9a50bdcdbd0922c5e11990fb220c6caf1ce1"
-		;;
-	aarch64|arm64)
-		GCM_ARCH="arm64"
-		GCM_SHA256="cf3806b7528b5a5af16bd4bd0683202fc432d9008dd91d20c4c6744b24a033b5"
-		;;
-	*)
-		printf 'Unsupported architecture: %s\n' "$(uname -m)" >&2
-		exit 1
-		;;
-esac
+if [[ "$(uname -m)" != "x86_64" ]]; then
+	printf 'Unsupported architecture: %s\n' "$(uname -m)" >&2
+	exit 1
+fi
 
-GCM_ASSET="gcm-linux-${GCM_ARCH}-${GCM_VERSION}.tar.gz"
-GCM_URL="https://github.com/git-ecosystem/git-credential-manager/releases/download/v${GCM_VERSION}/${GCM_ASSET}"
-TEMPORARY_DIRECTORY="$(mktemp -d)"
-trap 'rm -rf "${TEMPORARY_DIRECTORY}"' EXIT
+temporary_directory="$(mktemp -d)"
+trap 'rm -rf "${temporary_directory}"' EXIT
+
+# GCM does not publish .sha256 files, so take the checksum from the pinned
+# release's asset digest. The API response is flattened to one line so the
+# digest that follows this asset's name can be matched without a JSON parser.
+expected_checksum="$(
+	curl --fail --location --silent --show-error --retry 3 \
+		"https://api.github.com/repos/git-ecosystem/git-credential-manager/releases/tags/v${GCM_VERSION}" \
+		| tr -d '\n' \
+		| grep -oP "\"name\": *\"${GCM_ASSET//./\\.}\".*?\"digest\": *\"sha256:\K[0-9a-f]{64}" \
+		| head -n 1
+)"
+[[ "${expected_checksum}" =~ ^[[:xdigit:]]{64}$ ]]
 
 curl --fail --location --silent --show-error --retry 3 \
-	--output "${TEMPORARY_DIRECTORY}/${GCM_ASSET}" \
-	"${GCM_URL}"
+	--output "${temporary_directory}/${GCM_ASSET}" \
+	"${GCM_BASE_URL}/${GCM_ASSET}"
 
-printf '%s  %s\n' "${GCM_SHA256}" "${TEMPORARY_DIRECTORY}/${GCM_ASSET}" \
-	| sha256sum --check --status
+(
+	cd "${temporary_directory}"
+	printf '%s  %s\n' "${expected_checksum}" "${GCM_ASSET}" | sha256sum --check
+)
 
-tar --extract --gzip --file "${TEMPORARY_DIRECTORY}/${GCM_ASSET}" \
+tar --extract --gzip --file "${temporary_directory}/${GCM_ASSET}" \
 	--directory /usr/bin

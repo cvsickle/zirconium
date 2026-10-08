@@ -8,23 +8,12 @@
       "customType": "regex",
       "managerFilePatterns": [
         "/(^|/)install-tools\\.sh$/",
-        "/(^|/)install-oniri\\.sh$/"
+        "/(^|/)install-oniri\\.sh$/",
+        "/(^|/)install-gcm\\.sh$/"
       ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n\\w+_VERSION=\"(?<currentValue>.+?)\""
       ]
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)install-gcm\\.sh$/"
-      ],
-      "matchStrings": [
-        "GCM_TAG=\"(?<currentValue>v[^\"]+)\"[\\s\\S]*?x86_64\\)[\\s\\S]*?GCM_SHA256=\"(?<currentDigest>[a-f0-9]{64})\"",
-        "GCM_TAG=\"(?<currentValue>v[^\"]+)\"[\\s\\S]*?aarch64\\|arm64\\)[\\s\\S]*?GCM_SHA256=\"(?<currentDigest>[a-f0-9]{64})\""
-      ],
-      "datasourceTemplate": "github-release-attachments",
-      "depNameTemplate": "git-ecosystem/git-credential-manager"
     }
   ]
 }
