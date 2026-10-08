@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # renovate: datasource=github-releases depName=Antiz96/oniri
-ONIRI_VERSION="1.3.5"
+ONIRI_VERSION="1.3.6"
 ONIRI_ASSET="oniri-${ONIRI_VERSION}-x86_64"
 ONIRI_BASE_URL="https://github.com/Antiz96/oniri/releases/download/v${ONIRI_VERSION}"
 
