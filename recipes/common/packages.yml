@@ -73,6 +73,12 @@ modules:
     install:
       packages:
         - tailscale
+    # The upstream base image already ships tailscale, so install is a no-op.
+    # Sync the installed package to the version in the tailscale-stable repo.
+    replace:
+      - from-repo: tailscale-stable
+        packages:
+          - tailscale
 
   # VS Code
   - type: dnf
