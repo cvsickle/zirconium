@@ -14,6 +14,7 @@ flatpak override --user \
   --filesystem=xdg-config/qt6ct:ro \
   --filesystem=xdg-config/kdeglobals:ro \
   --filesystem=xdg-data/color-schemes:ro \
+  --filesystem=xdg-config/DankMaterialShell:ro \
   --filesystem=xdg-cache/DankMaterialShell:ro
 
 # Uninstall DankCalendar
