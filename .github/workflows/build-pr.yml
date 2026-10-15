@@ -3,13 +3,6 @@ on:
   pull_request:
     branches:
       - main
-    paths-ignore:
-      - "**.md"
-      - ".devcontainer/**"
-      - ".github/workflows/renovate.yaml"
-      - ".github/workflows/sync_codeberg.yaml"
-      - "docs/**"
-      - "files/system/usr/share/ublue-os/**"
   workflow_dispatch: # allow manually triggering builds
 
 concurrency:
@@ -18,8 +11,35 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  changes:
+    name: Detect Changes
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read # paths-filter uses the API to list PR files
+    outputs:
+      build: ${{ steps.filter.outputs.build }}
+    steps:
+      - uses: dorny/paths-filter@v4
+        id: filter
+        if: github.event_name == 'pull_request'
+        with:
+          # a file counts as a match only if it passes ALL rules below
+          predicate-quantifier: every
+          filters: |
+            build:
+              - '**'
+              - '!**.md'
+              - '!.devcontainer/**'
+              - '!.github/workflows/renovate.yaml'
+              - '!.github/workflows/sync_codeberg.yaml'
+              - '!docs/**'
+              - '!files/system/usr/share/ublue-os/**'
+
   bluebuild:
     name: Verify Image Build
+    needs: changes
+    # always build on manual dispatch; otherwise only when relevant files changed
+    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.build == 'true'
     runs-on: ubuntu-latest
     env:
       BB_BUILD_DRIVER: podman
@@ -48,3 +68,19 @@ jobs:
           maximize_build_space: true
           push: ${{ secrets.SIGNING_SECRET != '' }}
           build_opts: ${{ secrets.SIGNING_SECRET == '' && '--no-sign' || ' ' }}
+
+  build-status:
+    name: Build Status
+    needs: [changes, bluebuild]
+    if: always() # run even when bluebuild is skipped or fails
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check build results
+        run: |
+          echo "changes:   ${{ needs.changes.result }}"
+          echo "bluebuild: ${{ needs.bluebuild.result }}"
+          if [[ "${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}" == "true" ]]; then
+            echo "Build verification failed."
+            exit 1
+          fi
+          echo "Build passed or was not required."

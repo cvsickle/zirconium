@@ -1,7 +1,7 @@
 name: bluebuild
 on:
   schedule:
-    - cron: "17 6 * * THU" # Thursday 6:17 AM ET
+    - cron: "17 1 * * THU" # Thursday 1:17 AM ET
       timezone: "America/New_York"
   push:
     branches:
@@ -9,8 +9,7 @@ on:
     paths-ignore:
       - "**.md"
       - ".devcontainer/**"
-      - ".github/workflows/renovate.yaml"
-      - ".github/workflows/sync_codeberg.yaml"
+      - ".github/**"
       - "docs/**"
   workflow_dispatch: # allow manually triggering builds
 
