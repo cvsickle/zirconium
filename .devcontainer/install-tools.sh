@@ -19,7 +19,7 @@ esac
 
 # Install just
 # renovate: datasource=github-releases depName=casey/just
-JUST_VERSION="1.58.0"
+JUST_VERSION="1.59.0"
 curl -fsSL \
     "https://github.com/casey/just/releases/download/${JUST_VERSION}/just-${JUST_VERSION}-${JUST_ARCH}.tar.gz" \
     | sudo tar -xz -C /usr/local/bin just
