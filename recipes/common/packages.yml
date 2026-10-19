@@ -17,6 +17,7 @@ modules:
         - docker-cli
         - podman-compose
         - docker-compose
+        - iperf3
         # Desktop
         - adw-gtk3-theme
         - qt6ct
