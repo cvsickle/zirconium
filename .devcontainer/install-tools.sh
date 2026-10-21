@@ -31,7 +31,7 @@ sudo chmod +x /usr/local/bin/ujust
 
 # Install cosign
 # renovate: datasource=github-releases depName=sigstore/cosign
-COSIGN_VERSION="v3.1.3"
+COSIGN_VERSION="v3.1.4"
 curl -fsSL \
     "https://github.com/sigstore/cosign/releases/download/${COSIGN_VERSION}/cosign-linux-${COSIGN_ARCH}" \
     | sudo tee /usr/local/bin/cosign >/dev/null
