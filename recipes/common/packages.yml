@@ -142,6 +142,7 @@ modules:
     install:
       packages:
         - dankcalendar-git
+        - dux-files
 
   # Bibata Cursor Theme
   - type: dnf
