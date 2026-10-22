@@ -137,11 +137,11 @@ modules:
   - type: dnf
     repos:
       copr:
-        - duxlabs/dux
+        - avengemedia/danklinux
       cleanup: true
     install:
       packages:
-        - dcal
+        - dankcalendar-git
         - dux-files
 
   # Bibata Cursor Theme
