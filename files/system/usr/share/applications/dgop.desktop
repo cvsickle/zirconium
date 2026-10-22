@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=dgop
+Comment=Dux Go Process Status
+Icon=/usr/share/icons/hicolor/scalable/apps/dev.duxlabs.shell.svg
+TryExec=dgop
+Exec=dgop
+Terminal=true
+StartupNotify=false
+Categories=System;
+Keywords=system;monitor;resources;cpu;processes;memory;
