@@ -21,7 +21,9 @@ concurrency:
 jobs:
   bluebuild:
     name: Build Custom Image
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest moved to 26.04 (kernel 7.0, Docker 29) and chunkah
+    # started failing with "Disk quota exceeded". 24.04 built fine.
+    runs-on: ubuntu-24.04
     env:
       BB_BUILD_DRIVER: podman
       BB_RUN_DRIVER: podman
