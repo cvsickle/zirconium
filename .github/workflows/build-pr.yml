@@ -13,7 +13,7 @@ concurrency:
 jobs:
   changes:
     name: Detect Changes
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       pull-requests: read # paths-filter uses the API to list PR files
     outputs:
@@ -40,7 +40,7 @@ jobs:
     needs: changes
     # always build on manual dispatch; otherwise only when relevant files changed
     if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.build == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       BB_BUILD_DRIVER: podman
       BB_RUN_DRIVER: podman
@@ -73,7 +73,7 @@ jobs:
     name: Build Status
     needs: [changes, bluebuild]
     if: always() # run even when bluebuild is skipped or fails
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check build results
         run: |
