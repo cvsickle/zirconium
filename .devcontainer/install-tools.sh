@@ -39,7 +39,7 @@ sudo chmod +x /usr/local/bin/cosign
 
 # Install bluebuild CLI
 # renovate: datasource=github-releases depName=blue-build/cli
-BLUEBUILD_VERSION="v0.9.37"
+BLUEBUILD_VERSION="v0.9.40"
 curl -fsSL "https://raw.githubusercontent.com/blue-build/cli/${BLUEBUILD_VERSION}/install.sh" | sudo bash
 command -v bluebuild
 bluebuild --version
