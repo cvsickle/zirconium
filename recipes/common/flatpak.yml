@@ -12,8 +12,18 @@ modules:
           - net.codelogistics.webapps # Manage Web Apps
           - io.podman_desktop.PodmanDesktop # GUI for managing containers
           - com.github.tchx84.Flatseal # GUI for managing Flatpak permissions
+
+      # Add Flathub user repo
       - notify: false
-        scope: user # Also add Flathub user repo, but no user packages
+        scope: user
+
+      # Add ArtCraft user repo
+      #- notify: false
+      #  scope: user
+      #  repo:
+      #    url: https://getartcraft.com/artcraft-oci.flatpakrepo
+      #    name: artcraft-oci
+      #    title: ArtCraft
 
   - type: systemd
     system:
