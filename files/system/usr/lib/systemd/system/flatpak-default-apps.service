@@ -1,0 +1,15 @@
+[Unit]
+Description=Install default user Flatpak apps
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=1000
+Group=1000
+TimeoutStartSec=1200
+ExecStart=/usr/bin/flatpak-default-apps.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
