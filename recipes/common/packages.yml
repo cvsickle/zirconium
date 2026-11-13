@@ -137,7 +137,7 @@ modules:
   - type: dnf
     repos:
       copr:
-        - avengemedia/danklinux
+        - duxlabs/dux-repo
       cleanup: true
     install:
       packages:
